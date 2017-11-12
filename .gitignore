@@ -4,6 +4,7 @@ src/app/**/*.js
 src/app/**/*.js.map
 typings
 dist
+stats
 
 # @AngularClass
 

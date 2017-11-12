@@ -16,7 +16,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "clean": "npm cache clean && rimraf -- node_modules",
-    "server:prod": "http-server ./dist"
+    "server:prod": "http-server ./dist",
+    "check:perf": "mkdir -p stats && lighthouse http://localhost:4200 --output json --perf --output-path ./stats/lighthouse.json",
+    "mom": "mom-agent"
   },
   "private": true,
   "dependencies": {
@@ -59,6 +61,9 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-spec-reporter": "0.0.31",
+    "lighthouse": "^2.5.0",
+    "live-server": "^1.2.0",
+    "mom-agent": "0.0.4",
     "ngrx-action-creator-factory": "0.0.1",
     "ngrx-store-localstorage": "0.2.4",
     "ngx-infinite-scroll": "0.6.1",
@@ -68,6 +73,7 @@
     "protractor": "~5.1.2",
     "rimraf": "2.6.1",
     "shx": "0.2.2",
+    "stats-webpack-plugin": "^0.6.1",
     "ts-node": "~3.2.0",
     "tslint": "~5.3.2",
     "typescript": "2.3.3"
