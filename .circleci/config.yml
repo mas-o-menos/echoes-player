@@ -27,7 +27,7 @@ jobs:
 
       - run:
           name: Start local server
-          command: npm run static-serve
+          command: npm run server:prod
           background: true
 
       - run:
