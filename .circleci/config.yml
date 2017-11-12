@@ -22,7 +22,7 @@ jobs:
 
       # Builds, tests and checks
       - run:
-          name: Build production application
+          name: Build application
           command: npm run build
 
       - run:
