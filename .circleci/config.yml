@@ -38,6 +38,14 @@ jobs:
           name: Generate LCOV report
           command: npm run test -- --single-run --code-coverage
 
+      - store_artifacts:
+          path: ./stats
+          destination: stats
+
+      - store_artifacts:
+          path: ./coverage
+          destination: stats
+
       # Send stats to MoM
       - run:
           name: Send stats to MoM
@@ -48,11 +56,3 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-
-      - store_artifacts:
-          path: ./stats
-          destination: stats
-
-      - store_artifacts:
-          path: ./coverage
-          destination: stats
