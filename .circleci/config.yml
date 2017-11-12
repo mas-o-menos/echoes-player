@@ -23,7 +23,7 @@ jobs:
       # Builds, tests and checks
       - run:
           name: Build production application
-          command: npm run build:prod
+          command: npm run build
 
       - run:
           name: Start local server
@@ -54,5 +54,5 @@ jobs:
           destination: stats
 
       - store_artifacts:
-          path: ./coverage/lcov.info
+          path: ./coverage
           destination: stats
