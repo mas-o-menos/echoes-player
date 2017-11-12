@@ -49,7 +49,7 @@ jobs:
       # Send stats to MoM
       - run:
           name: Send stats to MoM
-          command: sleep 5 && npm run mom
+          command: npm run mom
 
       # save cache
       - save_cache:
