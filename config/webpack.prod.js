@@ -16,6 +16,7 @@ const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplacementPlugin');
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
+const StatsWebpackPlugin = require('stats-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -92,7 +93,7 @@ module.exports = function (env) {
         }
       ]
     },
-  
+
     /**
      * Add additional plugins to the compiler.
      *
@@ -250,7 +251,16 @@ module.exports = function (env) {
           from: 'CNAME',
           to: './'
         }
-      ])
+      ]),
+      new StatsWebpackPlugin('../stats/webpack.json', {
+        assets: true,
+        performance: true,
+        timings: true,
+        children: false,
+        source: false,
+        modules: false,
+        chunks: false
+      })
     ],
     /*
      * Include polyfills or mocks for various node stuff

@@ -12,6 +12,7 @@ const commonConfig = require('./webpack.common.js'); // the settings that are co
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
+const StatsWebpackPlugin = require('stats-webpack-plugin');
 
 /**
  * Webpack Constants
@@ -121,6 +122,16 @@ module.exports = function (options) {
        * See: https://github.com/webpack/webpack/commit/a04ffb928365b19feb75087c63f13cadfc08e1eb
        */
       new NamedModulesPlugin(),
+
+      new StatsWebpackPlugin('../stats/webpack.json', {
+        assets: true,
+        performance: true,
+        timings: true,
+        children: false,
+        source: false,
+        modules: false,
+        chunks: false
+      })
 
       /**
        * Plugin LoaderOptionsPlugin (experimental)

@@ -17,7 +17,7 @@
     "e2e": "ng e2e",
     "clean": "npm cache clean && rimraf -- node_modules",
     "server:prod": "http-server ./dist",
-    "check:perf": "mkdir -p stats && lighthouse http://localhost:4200 --output json --perf --output-path ./stats/lighthouse.json",
+    "check:perf": "mkdir -p stats && lighthouse http://localhost:8080 --output json --perf --output-path ./stats/lighthouse.json",
     "mom": "mom-agent"
   },
   "private": true,

@@ -22,8 +22,8 @@ jobs:
 
       # Builds, tests and checks
       - run:
-          name: Build application
-          command: npm run build
+          name: Build production application
+          command: npm run build:prod
 
       - run:
           name: Start local server
@@ -33,6 +33,10 @@ jobs:
       - run:
           name: Run lighthouse tests
           command: npm run check:perf
+
+      - run:
+          name: Generate LCOV report
+          command: npm run test -- --single-run --code-coverage
 
       # Send stats to MoM
       - run:
@@ -47,4 +51,8 @@ jobs:
 
       - store_artifacts:
           path: ./stats
+          destination: stats
+
+      - store_artifacts:
+          path: ./coverage/lcov.info
           destination: stats
