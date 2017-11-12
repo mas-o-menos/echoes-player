@@ -18,7 +18,7 @@ jobs:
 
       - run:
           name: Install dependencies
-          command: npm install && npm rebuild node-sass
+          command: npm install
 
       # Builds, tests and checks
       - run:
